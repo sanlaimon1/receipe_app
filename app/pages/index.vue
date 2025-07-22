@@ -2,7 +2,7 @@
 import { type RecipeResponse } from "../../types/types";
 import RecipeCard from '../components/ReceipeCard.vue';
 
-const { data, error } = await useFetch<RecipeResponse>("https://dummyjson.com/recipes?limit=12");
+const { data, error } = await useFetch<RecipeResponse>("https://dummyjson.com/recipes?limit=20");
 
 useSeoMeta({
     title: "Nuxtcipes",
@@ -20,7 +20,7 @@ useSeoMeta({
 </script>
 <template>
     <main>
-        <section class="bg-[#f1f1f1]">
+        <section class="bg-[#f1f1f1] px-[50px]">
             <div class="container flex flex-col lg:flex-row items-center py-20 gap-10">
                 <div class="flex-1 order-2 lg:order-1 text-center lg:text-left">
                     <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 text-balance">
@@ -37,10 +37,10 @@ useSeoMeta({
                 </div>
             </div>
         </section>
-        <section id="recipes" class="py-20 container">
+        <section id="recipes" class="py-20 container px-[50px]">
             <h2 class="text-3xl lg:text-5xl mb-2">Discover, Create, Share</h2>
             <p class="text-lg lg:text-xl mb-8">Check out our most popular recipes!</p>
-            <div v-if="!error" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+            <div v-if="!error" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8">
                 <RecipeCard v-for="recipe in data?.recipes" :recipe="recipe" />
             </div>
             <p v-else class="text-xl">Opps, something went wrong. Please try again later</p>
