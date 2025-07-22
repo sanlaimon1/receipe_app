@@ -1,21 +1,39 @@
 <script setup lang="ts">
-import { type RecipeResponse } from "../../types/types";
-import RecipeCard from '../components/ReceipeCard.vue';
+import { ref, watchEffect } from 'vue'
+import { type RecipeResponse } from '../../types/types'
+import RecipeCard from '../components/ReceipeCard.vue'
+// import SignupForm from '../components/SignupForm.vue'
 
-const { data, error } = await useFetch<RecipeResponse>("https://dummyjson.com/recipes?limit=20");
+const recipesPerPage = 12
+const currentPage = ref(1)
+const totalRecipes = ref(0)
+const { data, error, refresh } = await useFetch<RecipeResponse>(() =>
+    `https://dummyjson.com/recipes?limit=${recipesPerPage}&skip=${(currentPage.value - 1) * recipesPerPage}`
+)
+
+watchEffect(() => {
+    if (data.value) {
+        totalRecipes.value = data.value.total
+    }
+})
+
+function goToPage(page: number) {
+    currentPage.value = page
+    refresh()
+}
 
 useSeoMeta({
-    title: "Nuxtcipes",
-    description: "Recipes for you to cook!",
-    ogTitle: "Nuxtcipes",
-    ogDescription: "Recipes for you to cook!",
-    ogImage: "/nuxt-course-hero.png",
-    ogUrl: `http:localhost:3000`,
-    twitterTitle: "Nuxtcipes",
-    twitterDescription: "Recipes for you to cook!",
-    twitterImage: "/nuxt-course-hero.png",
-    twitterCard: "summary",
-});
+    title: 'Nuxtcipes',
+    description: 'Recipes for you to cook!',
+    ogTitle: 'Nuxtcipes',
+    ogDescription: 'Recipes for you to cook!',
+    ogImage: '/nuxt-course-hero.png',
+    ogUrl: `http://localhost:3000`,
+    twitterTitle: 'Nuxtcipes',
+    twitterDescription: 'Recipes for you to cook!',
+    twitterImage: '/nuxt-course-hero.png',
+    twitterCard: 'summary',
+})
 
 </script>
 <template>
@@ -44,6 +62,15 @@ useSeoMeta({
                 <RecipeCard v-for="recipe in data?.recipes" :recipe="recipe" />
             </div>
             <p v-else class="text-xl">Opps, something went wrong. Please try again later</p>
+            <div class="flex justify-center mt-10" v-if="totalRecipes > recipesPerPage">
+                <button v-for="page in Math.ceil(totalRecipes / recipesPerPage)" :key="page" @click="goToPage(page)"
+                    :class="[
+                        'mx-1 px-4 py-2 rounded border',
+                        currentPage === page ? 'bg-green-500 text-white' : 'bg-white text-gray-700'
+                    ]">
+                    {{ page }}
+                </button>
+            </div>
         </section>
         <section class="bg-[#f1f1f1] py-20">
             <SignupForm />
