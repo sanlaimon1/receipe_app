@@ -6,6 +6,10 @@ const isMenuOpen = ref(false)
 const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value
 }
+
+const closeMenu = () => {
+    isMenuOpen.value = false
+}
 </script>
 <template>
     <header class="py-4 border-b">
@@ -27,6 +31,11 @@ const toggleMenu = () => {
                 <li>
                     <NuxtLink to="/" class="block py-2 px-4 text-[18px]" @click="isMenuOpen = false">
                         Home
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink to="/bmi_calculator" class="block py-2 px-4 text-[18px]" @click="isMenuOpen = false">
+                        BMI Calculator
                     </NuxtLink>
                 </li>
                 <li>

@@ -1,0 +1,38 @@
+export const mealPlans = {
+    gain: {
+      Monday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Tuesday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Wednesday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Thursday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Friday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Saturday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Sunday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+    },
+    lose: {
+      Monday: ['Green Smoothie', 'Grilled Veggies with Chicken', 'Fruit Salad'],
+      Tuesday: ['Oatmeal with Berries', 'Tofu Salad', 'Steamed Fish with Broccoli'],
+      Wednesday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Thursday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Friday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Saturday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Sunday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+    },
+    maintain: {
+      Monday: ['Boiled Eggs', 'Rice + Veggies', 'Chicken Wrap'],
+      Tuesday: ['Yogurt + Fruit', 'Beef Stir Fry', 'Smoothie Bowl'],
+      Wednesday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Thursday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Friday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Saturday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Sunday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+    },
+    build: {
+      Monday: ['Boiled Eggs', 'Rice + Veggies', 'Chicken Wrap'],
+      Tuesday: ['Yogurt + Fruit', 'Beef Stir Fry', 'Smoothie Bowl'],
+      Wednesday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Thursday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Friday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+      Saturday: ['Eggs & Toast', 'Salmon & Quinoa', 'Greek Yogurt with Nuts'],
+      Sunday: ['Oats + Peanut Butter', 'Grilled Chicken with Rice', 'Protein Shake'],
+    },
+  }
